@@ -1,0 +1,18 @@
+name: Integration Workflow
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: write
+  packages: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  call-generic-pipeline-main:
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/01_Integration.yml@main
+    with:
+      origin: java
+    secrets: inherit
