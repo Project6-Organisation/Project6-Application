@@ -2,7 +2,11 @@ name: Integration Workflow
 
 on:
   push:
-  pull_request: 
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
 
 permissions:
   contents: write
@@ -12,5 +16,5 @@ permissions:
 
 jobs:
   call-generic-pipeline-main:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/01_Integration.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/Integration.yml@main
     secrets: inherit
