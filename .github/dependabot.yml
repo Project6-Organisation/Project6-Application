@@ -10,8 +10,21 @@ updates:
     directory: "/front"
     schedule:
       interval: "weekly"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "@angular*"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "rxjs"
+        update-types:
+          - "version-update:semver-major"
 
   - package-ecosystem: "gradle"
     directory: "/back"
     schedule:
       interval: "weekly"
+    target-branch: "develop"
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"

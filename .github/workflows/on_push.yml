@@ -16,5 +16,5 @@ permissions:
 
 jobs:
   call-generic-pipeline-main:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/Integration.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
     secrets: inherit
