@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Ensure main PR comes from develop
         run: |
-          echo "AWS_ACCESS_KEY_ID=AKIA1234567890ABCDEFG"
           echo "Base branch: ${{ github.base_ref }}"
           echo "Source branch: ${{ github.head_ref }}"
 
