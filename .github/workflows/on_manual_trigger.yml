@@ -17,7 +17,7 @@ permissions:
 jobs: 
 
   call-generic-pipeline-develop:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/01_Integration.yml@{github.ref_name}
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/01_Integration.yml@${{ github.ref_name }}
     with:
       origin: java
     secrets: inherit
