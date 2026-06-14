@@ -11,8 +11,6 @@ permissions:
  
 jobs: 
 
-  call-generic-pipeline-develop:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@feat/test-dispatch
-    with:
-      origin: java
+  call-generic-pipeline:
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@feat/test-dispatch   
     secrets: inherit
