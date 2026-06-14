@@ -1,0 +1,23 @@
+name: Trigger Integration Workflow
+ 
+on:
+  workflow_dispatch:
+    inputs:
+        info:
+          description: "Use this to trigger the workflow manually. You can select the branch to use, but the workflow will run on the develop branch"
+          required: false
+          default: "develop branch"
+
+permissions:
+  contents: write
+  packages: write
+  issues: write
+  pull-requests: read
+ 
+jobs: 
+
+  call-generic-pipeline-develop:
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@develop
+    with:
+      origin: manual-trigger
+    secrets: inherit
