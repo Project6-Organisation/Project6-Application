@@ -2,10 +2,6 @@ name: Trigger Integration Workflow
  
 on:
   workflow_dispatch:
-    inputs:
-      info:
-        description: "Use this to trigger the workflow manually"
-        required: false
 
 permissions:
   contents: write
