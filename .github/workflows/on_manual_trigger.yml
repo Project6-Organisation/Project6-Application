@@ -6,7 +6,6 @@ on:
       info:
         description: "Use this to trigger the workflow manually"
         required: false
-        default: "develop branch"
 
 permissions:
   contents: write
@@ -17,7 +16,7 @@ permissions:
 jobs: 
 
   call-generic-pipeline-develop:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/01_Integration.yml@feat/test-dispatch
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@feat/test-dispatch
     with:
       origin: java
     secrets: inherit
