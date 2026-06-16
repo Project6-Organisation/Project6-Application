@@ -18,16 +18,16 @@ permissions:
   contents: write
   packages: write
   issues: write
-  pull-requests: read
+  pull-requests: write
 
 jobs:
-  call-generic-pipeline-main:
+  Generic-pipeline-main:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
     secrets: inherit
 
-  release-and-build-images:
+  Release-and-build-images:
     if: github.event_name == 'push' && github.ref_name == 'main'
     needs:
-      - call-generic-pipeline-main
+      - Generic-pipeline-main
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
     secrets: inherit
