@@ -7,7 +7,8 @@ on:
 
 jobs:
   validate-source-branch:
-    runs-on: [self-hosted, project6]
+    # runs-on: [self-hosted, project6]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Ensure main PR comes from develop
