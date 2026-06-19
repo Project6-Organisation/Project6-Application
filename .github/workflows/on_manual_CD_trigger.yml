@@ -1,12 +1,7 @@
 name: Trigger CD Workflow
  
 on:
-  workflow_dispatch:
-    inputs:
-        info:
-          description: "Use this to trigger the workflow manually. You can select the branch to use, but the workflow will run on the develop branch"
-          required: false
-          default: "main branch"
+  workflow_dispatch:   
     
 permissions:
   contents: write
@@ -17,7 +12,5 @@ permissions:
 jobs: 
 
   Release-and-build-images:      
-      uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
-      with:
-        origin: manual-trigger
+      uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main      
       secrets: inherit
