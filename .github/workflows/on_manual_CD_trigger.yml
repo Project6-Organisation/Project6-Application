@@ -1,0 +1,17 @@
+name: Trigger Integration Workflow
+ 
+on:
+  workflow_dispatch:
+    
+permissions:
+  contents: write
+  packages: write
+  issues: write
+  pull-requests: read
+ 
+jobs: 
+
+  Release-and-build-images:
+      needs:
+      uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
+      secrets: inherit
