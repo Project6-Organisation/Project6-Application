@@ -1,4 +1,4 @@
-name: Trigger Integration Workflow
+name: Trigger CD Workflow
  
 on:
   workflow_dispatch:
