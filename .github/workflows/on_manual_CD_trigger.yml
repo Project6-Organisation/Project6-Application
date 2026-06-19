@@ -11,7 +11,6 @@ permissions:
  
 jobs: 
 
-  Release-and-build-images:
-      needs:
+  Release-and-build-images:      
       uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
       secrets: inherit
