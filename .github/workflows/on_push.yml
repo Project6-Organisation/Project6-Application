@@ -25,9 +25,9 @@ jobs:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
     secrets: inherit
 
-  Release-and-build-images:
-    if: github.event_name == 'push' && github.ref_name == 'main'
-    needs:
-      - Generic-pipeline-main
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
-    secrets: inherit
+  # Release-and-build-images:
+  #   if: github.event_name == 'push' && github.ref_name == 'main'
+  #   needs:
+  #     - Generic-pipeline-main
+  #   uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Release_And_Docker.yml@main
+  #   secrets: inherit

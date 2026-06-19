@@ -38,11 +38,22 @@ Une intégration basique avec Gitlab CI est définie via le fichier [`.gitlab-ci
    cd back
    ```
 
-2. Construire le JAR:
+2. Première utilisation
+
+   
+   ```shell
+   # Sur Linux
+   sudo apt install openjdk-17-jre-headless
+   sed -i 's/\r$//' gradlew
+   chmod +x gradlew
+   ```
+
+3. Build (Construire le JAR):
 
    ```shell
    # Sur Linux
    ./gradlew build
+   ./gradlew clean build
 
    # Sur Windows
    gradlew.bat build
@@ -96,7 +107,14 @@ Dans votre terminal:
 
 ```shell
 cd front
-CHROME_BIN=</path/to/google/chrome> npm test
+npm test
+```
+
+En mode Chrome headless, avec couverture de code
+
+```shell
+cd front
+ng test --watch=false --browsers=ChromeHeadless --code-coverage
 ```
 
 #### Serveur
@@ -106,6 +124,14 @@ Dans votre terminal:
 ```shell
 cd back
 ./gradlew test
+```
+
+Re-run from scratch
+
+```shell
+cd back
+./gradlew clean test 
+./gradlew test --rerun-tasks
 ```
 
 ### Images Docker
