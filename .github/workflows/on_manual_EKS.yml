@@ -1,42 +1,34 @@
-name: EKS Infra
+name: Create EKS Cluster
 
 on:
   workflow_dispatch:
-    inputs:
-      action:
-        description: "Terraform action"
-        required: true
-        default: "apply"
-        type: choice
-        options:
-          - apply
-          - destroy
 
 permissions:
   contents: read
 
 jobs:
-  eks-infra:
+  create-eks:
     runs-on: [self-hosted, project6]
 
     defaults:
       run:
-        working-directory: infra/eks
+        working-directory: integration/infra/eks
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout integration repository
+        uses: actions/checkout@v4
+        with:
+          repository: Project6-Organisation/Project6-Integration
+          path: integration
 
       - name: Terraform init
         run: terraform init
 
+      - name: Terraform validate
+        run: terraform validate
+
       - name: Terraform plan
-        if: inputs.action == 'apply'
         run: terraform plan
 
       - name: Terraform apply
-        if: inputs.action == 'apply'
         run: terraform apply -auto-approve
-
-      - name: Terraform destroy
-        if: inputs.action == 'destroy'
-        run: terraform destroy -auto-approve
