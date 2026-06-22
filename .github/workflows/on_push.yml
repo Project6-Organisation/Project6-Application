@@ -24,3 +24,12 @@ jobs:
     # - on merge to develop or main branch (the event is push)
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
     secrets: inherit
+
+  Artefact:
+    # Triggered on :
+    # - on merge to develop or main branch (the event is push)
+    needs:
+      - Generic-pipeline-main
+    if: github.event_name == 'push' && (github.ref_name == 'main' || github.ref_name == 'develop')
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Artefact.yml@main
+    secrets: inherit
