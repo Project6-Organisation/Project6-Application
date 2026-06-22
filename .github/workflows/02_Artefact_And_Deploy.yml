@@ -1,4 +1,4 @@
-name: Integration Workflow
+name: Artefact and Deploy Workflow
 
 # Triggered on :
 # - on merge to develop or main branch (the event is push)
