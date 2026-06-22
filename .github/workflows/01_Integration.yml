@@ -5,9 +5,7 @@ name: Integration Workflow
 # - on pull request (create) to develop or main branch
 
 on:
-  push:
-    branches:
-      - "**"
+  push:    
     branches-ignore:
       - main
       - develop
