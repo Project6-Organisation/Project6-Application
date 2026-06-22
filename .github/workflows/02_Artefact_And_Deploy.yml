@@ -1,10 +1,13 @@
 name: Integration Workflow
 
+# Triggered on :
+# - on merge to develop or main branch (the event is push)
+
 on:
   push:
     branches:
-      - "develop"
-      - "main"
+      - develop
+      - main
     
 permissions:
   contents: write
@@ -14,9 +17,5 @@ permissions:
  
 jobs:  
   Artefact:
-    # Triggered on :
-    # - on merge to develop or main branch (the event is push)    
-    needs:
-      - Generic-pipeline-main
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Artefact.yml@main
     secrets: inherit
