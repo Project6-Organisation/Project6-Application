@@ -1,0 +1,27 @@
+name: Integration Workflow
+
+# Triggered on :
+# - on push to all feature branchs (develop and main are exluded)
+# - on pull request (create) to develop or main branch
+
+on:
+  push:    
+    branches-ignore:
+      - main
+      - develop
+    
+  pull_request:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: write
+  packages: write
+  issues: write
+  pull-requests: write
+ 
+jobs:
+  Generic-pipeline-main:        
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
+    secrets: inherit
