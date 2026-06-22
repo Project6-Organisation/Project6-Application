@@ -1,5 +1,7 @@
 FROM gradle:jdk17 as build
 
+RUN echo "=== build ==="
+
 WORKDIR /app
 
 COPY gradlew .
@@ -15,6 +17,8 @@ COPY src src
 RUN ./gradlew clean build --no-daemon
 
 FROM alpine:3.19 as back
+
+RUN echo "=== runtime ==="
 
 WORKDIR /app
 
