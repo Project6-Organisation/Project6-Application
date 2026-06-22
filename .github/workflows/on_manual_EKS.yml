@@ -1,0 +1,42 @@
+name: EKS Infra
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Terraform action"
+        required: true
+        default: "apply"
+        type: choice
+        options:
+          - apply
+          - destroy
+
+permissions:
+  contents: read
+
+jobs:
+  eks-infra:
+    runs-on: [self-hosted, project6]
+
+    defaults:
+      run:
+        working-directory: infra/eks
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Terraform init
+        run: terraform init
+
+      - name: Terraform plan
+        if: inputs.action == 'apply'
+        run: terraform plan
+
+      - name: Terraform apply
+        if: inputs.action == 'apply'
+        run: terraform apply -auto-approve
+
+      - name: Terraform destroy
+        if: inputs.action == 'destroy'
+        run: terraform destroy -auto-approve
