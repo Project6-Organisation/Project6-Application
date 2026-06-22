@@ -1,8 +1,15 @@
-localhost {
+:80 {
     root * /app/front
     encode gzip
     try_files {path} /index.html
     file_server
-
-    tls internal
 }
+
+#localhost {
+#    root * /app/front
+#    encode gzip
+#    try_files {path} /index.html
+#    file_server
+#
+#    tls internal
+#}
