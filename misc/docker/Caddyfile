@@ -1,6 +1,7 @@
-* {
+localhost {
 	root * /app/front
 	encode gzip
 	try_files {path} /index.html
 	file_server
+	tls internal
 }

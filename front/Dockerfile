@@ -1,5 +1,7 @@
 FROM node as build
 
+RUN echo "=== build ==="
+
 WORKDIR /app
 
 COPY . .
@@ -8,6 +10,8 @@ RUN npm ci \
     && npx @angular/cli build --optimization
 
 FROM alpine:3.19 as front
+
+RUN echo "=== runtime ==="
 
 WORKDIR /app
 
