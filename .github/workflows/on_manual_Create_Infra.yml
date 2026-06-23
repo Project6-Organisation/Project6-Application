@@ -1,0 +1,25 @@
+name: Deploy Infra with Terraform on EKS
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "Terraform action"
+        required: true
+        default: "apply"
+        type: choice
+        options:
+          - apply
+          - destroy
+
+permissions:
+  contents: read
+
+jobs:
+  call-Create-Infra:
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/03_Create_Infra.yml@main
+    with:
+      action: ${{ github.event.inputs.action }}
+    secrets: inherit
+
+  
