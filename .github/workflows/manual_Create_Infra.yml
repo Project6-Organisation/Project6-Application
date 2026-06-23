@@ -12,6 +12,14 @@ on:
           - plan
           - apply
           - destroy
+      environment:
+        description: "Environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - prod
 
 permissions:
   contents: read
@@ -21,4 +29,5 @@ jobs:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_03_Create_Infra.yml@main
     with:
       action: ${{ github.event.inputs.action }}
+      environment: ${{ github.event.inputs.environment }}
     secrets: inherit
