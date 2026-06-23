@@ -1,4 +1,4 @@
-name: Artefact and Deploy Workflow
+name: Artefact and Deployment Workflow
 
 # Triggered on :
 # - on merge to develop or main branch (the event is push)
