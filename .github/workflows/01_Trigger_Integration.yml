@@ -1,4 +1,4 @@
-name: Integration Workflow
+name: Continuous Integration Workflow
 
 # Triggered on :
 # - on push to all feature branchs (develop and main are exluded)
@@ -22,6 +22,7 @@ permissions:
   pull-requests: write
  
 jobs:
-  Generic-pipeline-main:        
+
+  Continuous-Integration:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_01_Integration.yml@main
     secrets: inherit
