@@ -17,9 +17,7 @@ permissions:
 
 jobs:
   call-Create-Infra:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/03_Create_Infra.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_03_Create_Infra.yml@main
     with:
       action: ${{ github.event.inputs.action }}
     secrets: inherit
-
-  
