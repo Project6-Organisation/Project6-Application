@@ -1,4 +1,4 @@
-name: Trigger create infrastructure
+name: Trigger deployment infrastructure
 
 on:
   workflow_dispatch:

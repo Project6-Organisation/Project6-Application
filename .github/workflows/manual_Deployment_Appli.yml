@@ -1,4 +1,4 @@
-name: Trigger Continuous Deployment
+name: Trigger deployment application
 
 on:
   workflow_dispatch:
