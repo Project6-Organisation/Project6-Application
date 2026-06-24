@@ -1,4 +1,4 @@
-name: Trigger Continuous Deployment
+name: Trigger rollback
 
 on:
   workflow_dispatch:
@@ -12,19 +12,19 @@ on:
           - staging
           - prod
 
-      image_tag:
-        description: "Docker image tag to deploy"
+      revision:
+        description: "Helm revision to rollback to"
         required: true
-        default: "v1.6.0"
+        default: "1"
 
 permissions:
   contents: read
   packages: read
 
 jobs:
-  Continuous-Deployment:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_04_Deployment.yml@main
+  Trigger-Rollback:
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_05_Rollback.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
-      image_tag: ${{ github.event.inputs.image_tag }}
+      revision: ${{ github.event.inputs.revision }}
     secrets: inherit

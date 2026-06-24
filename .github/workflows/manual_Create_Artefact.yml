@@ -1,4 +1,4 @@
-name: Trigger CD Workflow
+name: Trigger create artefact
  
 on:
   workflow_dispatch:   

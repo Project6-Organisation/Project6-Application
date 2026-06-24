@@ -1,4 +1,4 @@
-name: Trigger Integration Workflow
+name: Trigger Continuous Integration
  
 on:
   workflow_dispatch:
