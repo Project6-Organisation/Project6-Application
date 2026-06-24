@@ -1,12 +1,5 @@
-:80 {
-    root * /app/front
-    encode gzip
-    try_files {path} /index.html
-    file_server
-}
-
 :443 {
-    tls internal
+    tls /app/certs/cert.pem /app/certs/key.pem
 
     root * /app/front
     encode gzip
