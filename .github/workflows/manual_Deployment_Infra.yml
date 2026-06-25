@@ -11,6 +11,7 @@ on:
         options:
           - plan
           - apply
+          - plan-destroy
           - destroy
       environment:
         description: "Environment"
