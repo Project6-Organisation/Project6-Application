@@ -24,5 +24,6 @@ jobs:
     needs: Artefact
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_04_Deployment_Appli.yml@main
     with:
+      environment: ${{ github.ref_name == 'main' && 'prod' || 'staging' }}
       image_tag: ${{ needs.Artefact.outputs.image_tag }}
     secrets: inherit
