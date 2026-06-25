@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY . .
 
+RUN cp misc/docker/config.docker.ts src/app/config.ts
+
 RUN npm ci \
     && npx @angular/cli build --optimization
 
