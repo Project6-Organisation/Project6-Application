@@ -19,3 +19,10 @@ jobs:
   Artefact:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_02_Artefact.yml@main
     secrets: inherit
+
+  Continuous-Deployment:
+    needs: Artefact
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_04_Deployment_Appli.yml@main
+    with:
+      image_tag: ${{ needs.Artefact.outputs.image_tag }}
+    secrets: inherit
