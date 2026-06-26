@@ -8,6 +8,8 @@ COPY . .
 
 RUN printf 'export const API_BASE_URL = "%s";\n' "$API_BASE_URL" > src/app/config.ts
 
+RUN cat src/app/config.ts
+
 RUN npm ci \
     && npx @angular/cli build --optimization
 
