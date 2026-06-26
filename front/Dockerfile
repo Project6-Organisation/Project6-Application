@@ -1,10 +1,14 @@
 FROM node as build
 
+ARG API_BASE_URL
+
 RUN echo "=== build ==="
 
 WORKDIR /app
 
 COPY . .
+
+RUN echo "API_BASE_URL in docker build: $API_BASE_URL"
 
 RUN printf 'export const API_BASE_URL = "%s";\n' "$API_BASE_URL" > src/app/config.ts
 
