@@ -1,4 +1,4 @@
-name: Trigger rollback
+name: Trigger application rollback
 
 on:
   workflow_dispatch:
