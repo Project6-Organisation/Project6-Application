@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   Continuous-Deployment:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_04_Deployment_Appli.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_03_Deployment_Appli.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
       image_tag: ${{ github.event.inputs.image_tag }}
