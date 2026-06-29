@@ -6,10 +6,9 @@ on:
       environment:
         description: "Environment"
         required: true
-        default: "staging"
+        default: "prod"
         type: choice
-        options:
-          - staging
+        options:          
           - prod
 
       image_tag:
