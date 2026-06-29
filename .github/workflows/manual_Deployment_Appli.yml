@@ -1,4 +1,4 @@
-name: Trigger application deployment
+name: Trigger application deployment on PROD
 
 on:
   workflow_dispatch:
