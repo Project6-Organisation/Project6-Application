@@ -28,4 +28,4 @@ jobs:
     with:
       environment: ${{ github.ref_name == 'main' && 'prod' || 'staging' }}
       image_tag: ${{ needs.Docker_Build.outputs.image_tag }}
-    secrets: inherit
+    secrets: inherit 
