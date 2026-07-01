@@ -1,7 +1,7 @@
 name: Docker build and application deployment
 
 # Triggered on :
-# - on merge to develop or main branch (the event is push)
+# - on PR merge to develop or main branch (the event is push)
 
 on:
   push:
@@ -27,8 +27,5 @@ jobs:
     uses: Project6-Organisation/Project6-Integration/.github/workflows/_03_Deployment_Appli.yml@main
     with:
       environment: ${{ github.ref_name == 'main' && 'prod' || 'staging' }}
-      image_tag: ${{ needs.Docker_Build.outputs.image_tag }}
-      commit_sha: ${{ github.sha }}
-      repo_owner: ${{ github.repository_owner }}
-      repo_name: ${{ github.event.repository.name }}
+      image_tag: ${{ needs.Docker_Build.outputs.image_tag }}      
     secrets: inherit 
