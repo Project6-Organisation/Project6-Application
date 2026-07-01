@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   Trigger-Rollback:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_05_Rollback.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_06_Rollback.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
       revision: ${{ github.event.inputs.revision }}

@@ -32,3 +32,11 @@ jobs:
       action: ${{ github.event.inputs.action }}
       environment: ${{ github.event.inputs.environment }}
     secrets: inherit
+
+  call-Deployment-Monitoring:
+    needs: call-Deployment-Infra
+    if: ${{ github.event.inputs.action == 'apply' }}
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_05_Deployment_Monitoring.yml@main
+    with:
+      environment: ${{ github.event.inputs.environment }}
+    secrets: inherit
