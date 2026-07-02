@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   Trigger-Rollback:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_07_Rollback_Canary.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_06_Rollback_Canary.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
     secrets: inherit
