@@ -1,23 +1,20 @@
-name: Trigger application rollback
+name: Promote Canary
 
 on:
   workflow_dispatch:
-    inputs:      
+    inputs:
       environment:
-        description: "Environment"
         required: true
-        default: "prod"
         type: choice
         options:
           - prod
 
 permissions:
   contents: read
-  packages: read
 
 jobs:
   Trigger-Rollback:
-    uses: Project6-Organisation/Project6-Integration/.github/workflows/_07_Rollback_Canary.yml@main
+    uses: Project6-Organisation/Project6-Integration/.github/workflows/_06_Promote_Canary.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
     secrets: inherit
