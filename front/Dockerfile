@@ -1,10 +1,18 @@
 FROM node as build
 
+ARG API_BASE_URL
+
 RUN echo "=== build ==="
 
 WORKDIR /app
 
 COPY . .
+
+RUN echo "API_BASE_URL in docker build: $API_BASE_URL"
+
+RUN printf 'export const API_BASE_URL = "%s";\n' "$API_BASE_URL" > src/app/config.ts
+
+RUN cat src/app/config.ts
 
 RUN npm ci \
     && npx @angular/cli build --optimization
@@ -21,11 +29,19 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 COPY --from=build /app/dist/microcrm/browser /app/front
 COPY misc/docker/Caddyfile /app/Caddyfile
 
-RUN apk add caddy
+RUN apk add caddy openssl
 
 RUN mkdir -p /home/appuser/.local/share/caddy \
     && mkdir -p /home/appuser/.config/caddy \
     && chown -R appuser:appgroup /home/appuser \
+    && chown -R appuser:appgroup /app
+
+RUN mkdir -p /app/certs \
+    && openssl req -x509 -nodes -newkey rsa:2048 \
+      -days 365 \
+      -keyout /app/certs/key.pem \
+      -out /app/certs/cert.pem \
+      -subj "/CN=localhost" \
     && chown -R appuser:appgroup /app
 
 USER appuser

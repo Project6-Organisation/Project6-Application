@@ -1,14 +1,13 @@
-name: Continuous Integration Workflow
+name: Continuous Integration
 
 # Triggered on :
-# - on push to all feature branchs (develop and main are exluded)
+# - on push to all feature branchs (main are exluded)
 # - on pull request (create) to develop or main branch
 
 on:
   push:    
     branches-ignore:
       - main
-      - develop
     
   pull_request:
     branches:
